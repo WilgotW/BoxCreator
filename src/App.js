@@ -6,7 +6,7 @@ function App() {
   const [boxes, setBoxes] = useState([]);
   const [objectType, setObjectType] = useState("Box");
 
-  const HandleClick = ev => {
+  const HandleClick = () => {
     const newBoxes = [...boxes, {objectType: objectType, id: boxes.length}];
     setBoxes(newBoxes)
   }
