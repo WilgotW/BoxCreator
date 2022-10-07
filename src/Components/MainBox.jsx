@@ -16,7 +16,6 @@ export default function MainBox() {
         
             <div style={{display: "flex", justifyContent: "center"}}>    
                 <h2>{width} x {height}</h2>
-                
             </div>
             <Box width={width} height={height}/>
         </div>

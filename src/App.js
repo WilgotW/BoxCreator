@@ -1,5 +1,5 @@
 import MainBox from "./Components/MainBox";
-import Slider from "./Components/Slider";
+import './App.css';
 
 function App() {
   return (
