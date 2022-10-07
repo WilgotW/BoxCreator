@@ -3,14 +3,15 @@ import Box from './Box';
 import RgbPicker from './RgbPicker';
 import Slider from './Slider';
 
-export default function MainBox({objectType}) {
+export default function MainBox({objectType, id}) {
     const [width, setWidth] = useState("50px");
     const [height, setHeight] = useState("50px");
     const [rgb, setRgb] = useState("rgb(0,0,0)");
     
   return (
-    <div style={{display: "flex", justifyContent:"center",  background: "rgb(227, 227, 227)", margin: "20px"}}>
+    <div key={id} style={{display: "flex", justifyContent:"center",  background: "rgb(227, 227, 227)", margin: "20px"}}>
         <div style={{display: "flex", justifyContent: "center", flexDirection:"column", width: "100vw"}}>
+            <h1>{id}</h1>
             <div style={{display: "flex", justifyContent: "center"}}>
                 <Slider setValue={setWidth} />
                 {objectType == "Box" &&

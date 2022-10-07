@@ -7,8 +7,7 @@ function App() {
   const [objectType, setObjectType] = useState("Box");
 
   const HandleClick = ev => {
-    ev = <MainBox objectType={objectType} />
-    const newBoxes = [ev, ...boxes];
+    const newBoxes = [...boxes, {objectType: objectType, id: boxes.length}];
     setBoxes(newBoxes)
   }
 
@@ -25,7 +24,7 @@ function App() {
           <option value="Circle">Circle</option>
         </select>
       </label>
-      {boxes}
+      {boxes.map(box => <MainBox objectType={box.objectType} id={box.id}/>)}
     </div>
   );
 }
