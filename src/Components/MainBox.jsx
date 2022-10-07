@@ -3,17 +3,19 @@ import Box from './Box';
 import RgbPicker from './RgbPicker';
 import Slider from './Slider';
 
-export default function MainBox() {
+export default function MainBox({objectType}) {
     const [width, setWidth] = useState("50px");
     const [height, setHeight] = useState("50px");
     const [rgb, setRgb] = useState("rgb(0,0,0)");
     
   return (
-    <div style={{display: "flex", justifyContent:"center"}}>
+    <div style={{display: "flex", justifyContent:"center",  background: "rgb(227, 227, 227)", margin: "20px"}}>
         <div style={{display: "flex", justifyContent: "center", flexDirection:"column", width: "100vw"}}>
             <div style={{display: "flex", justifyContent: "center"}}>
                 <Slider setValue={setWidth} />
-                <Slider setValue={setHeight} />
+                {objectType == "Box" &&
+                    <Slider setValue={setHeight} />
+                }
             </div>
         
             <div style={{display: "flex", justifyContent: "center"}}>    
@@ -22,7 +24,7 @@ export default function MainBox() {
             <div>
                 <RgbPicker setRgb={setRgb}/>
             </div>
-            <Box width={width} height={height} rgb={rgb}/>
+            <Box width={width} height={height} rgb={rgb} objectType={objectType}/>
         </div>
     </div>
   )

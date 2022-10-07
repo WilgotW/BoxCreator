@@ -1,12 +1,14 @@
 import React from 'react'
 
-export default function Box({width, height, rgb}) {
+export default function Box({width, height, rgb, objectType}) {
   return (
-    <div style={{display: "flex", justifyContent: "center"}}>
+    <div key={Math.random() * 1000} style={{display: "flex", justifyContent: "center"}}>
         <div style={{
             width: width,
-            height: height,
-            background: rgb}}>    
+            height: objectType == "Box" ? height : width  ,
+            background: rgb,
+            borderRadius: objectType == "Box" ? "0px" : "1000px"
+          }}>    
         </div>
     </div>
   )
