@@ -18,9 +18,8 @@ export default function MainBox({objectType, id}) {
                     <Slider setValue={setHeight} />
                 }
             </div>
-        
             <div style={{display: "flex", justifyContent: "center"}}>    
-                <h2>{width} {objectType == "Box" && "x"} {objectType == "Box" && height}</h2>
+                <h2>{width} {objectType == "Box" && "x "+height}</h2>
             </div>
             <div>
                 <RgbPicker setRgb={setRgb}/>
