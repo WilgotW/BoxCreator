@@ -15,6 +15,7 @@ function App() {
     const selected = ev.target.value;
     setObjectType(selected);
   }
+
   return (
     <div className="App">
       <button onClick={HandleClick}>Add Box</button>
@@ -24,7 +25,7 @@ function App() {
           <option value="Circle">Circle</option>
         </select>
       </label>
-      {boxes.map(box => <MainBox objectType={box.objectType} id={box.id}/>)}
+      {boxes.map(box => <MainBox objectType={box.objectType} id={box.id} boxes={boxes} setBoxes={setBoxes}/>)}
     </div>
   );
 }
