@@ -7,3 +7,6 @@
 h2{
   font-family: 'Open Sans', sans-serif;
 }
+.slider :-webkit-slider-thumb{
+  background: "red";
+}
