@@ -3,15 +3,10 @@ import Box from './Box';
 import RgbPicker from './RgbPicker';
 import Slider from './Slider';
 
-export default function MainBox({objectType, id, setBoxes, boxes}) {
+export default function MainBox({objectType, id, deleteThis}) {
     const [width, setWidth] = useState("50px");
     const [height, setHeight] = useState("50px");
     const [rgb, setRgb] = useState("rgb(0,0,0)");
-
-    const DeleteThis = () => {
-        const newArr = boxes.filter(ob => ob.id != id)
-        setBoxes(newArr);
-    }
     
   return (
     <div key={id} style={{display: "flex", justifyContent:"center",  background: "rgb(227, 227, 227)", margin: "20px"}}>
@@ -28,7 +23,7 @@ export default function MainBox({objectType, id, setBoxes, boxes}) {
             </div>
             <div>
                 <RgbPicker setRgb={setRgb}/>
-                <button style={{color: "red"}} onClick={DeleteThis}>Delete This</button>
+                <button style={{color: "red"}} onClick={() => deleteThis(id)}>Delete This</button>
             </div>
             
             <Box width={width} height={height} rgb={rgb} objectType={objectType}/>

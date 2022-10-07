@@ -7,8 +7,13 @@ function App() {
   const [objectType, setObjectType] = useState("Box");
 
   const HandleClick = () => {
-    const newBoxes = [...boxes, {objectType: objectType, id: boxes.length}];
+    const newBoxes = [...boxes, {objectType: objectType, id: Math.floor(Math.random() * 1000)}];
     setBoxes(newBoxes)
+  }
+  
+  const deleteItem = id =>{
+    const newArr = boxes.filter(ob => ob.id !== id)
+    setBoxes([...newArr]);
   }
 
   const HandleSelect = ev => {
@@ -25,7 +30,7 @@ function App() {
           <option value="Circle">Circle</option>
         </select>
       </label>
-      {boxes.map(box => <MainBox objectType={box.objectType} id={box.id} boxes={boxes} setBoxes={setBoxes}/>)}
+      {boxes.map(box => <MainBox objectType={box.objectType} id={box.id} deleteThis={deleteItem}/>)}
     </div>
   );
 }
