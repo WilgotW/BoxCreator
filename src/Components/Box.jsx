@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Box({width, height}) {
+export default function Box({width, height, rgb}) {
   return (
     <div style={{display: "flex", justifyContent: "center"}}>
         <div style={{
             width: width,
             height: height,
-            background: "red"}}>    
+            background: rgb}}>    
         </div>
     </div>
   )
